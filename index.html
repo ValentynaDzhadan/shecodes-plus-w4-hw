@@ -6,8 +6,68 @@
     <title>Week 4</title>
   </head>
   <body>
-    <h1>JS Functions</h1>
-    <h2></h2>
-    <script></script>
+    <h1>JS Dates</h1>
+    <script>
+      // Challenge 1
+      let now = new Date();
+      console.log(`The current date: --> ${now}`);
+
+      // Challenge 2
+      console.log(
+        `The number of milliseconds in the current time: --> ${now.getMilliseconds()}`
+      );
+
+      // Challenge 3
+      console.log(`The current day: --> ${now.getDay()}`);
+
+      // Challenge 4
+      console.log(`The current year: --> ${now.getFullYear()}`);
+
+      // Challenge 5
+      console.log(`The current month: --> ${now.getMonth()}`);
+
+      // Challenge 6
+      let daysArr = [
+        "Sunday",
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday",
+      ];
+      let monthsArr = [
+        "January",
+        "February",
+        "March",
+        "April",
+        "May",
+        "June",
+        "July",
+        "August",
+        "September",
+        "October",
+        "November",
+        "December",
+      ];
+      let day = daysArr[now.getDay()];
+      let month = monthsArr[now.getMonth()];
+      let year = now.getFullYear();
+      let date = now.getDate();
+
+      console.log(`Today is ${day}, ${month} ${date}, ${year}`);
+
+      // Challenge 7
+
+      function formatDate(currentDate) {
+        let day = daysArr[currentDate.getDay()];
+        let month = monthsArr[currentDate.getMonth()];
+        let year = currentDate.getFullYear();
+        let date = currentDate.getDate();
+        return `Today is ${day}, ${month} ${date}, ${year}`;
+      }
+
+      console.log(formatDate(new Date()));
+    </script>
   </body>
 </html>
