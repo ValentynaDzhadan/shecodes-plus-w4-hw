@@ -1,36 +1,107 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Week 4</title>
-  </head>
-  <body>
-    <h1>JS Forms</h1>
-    <h2></h2>
-    <form id="search-form">
-      <input
-        type="text"
-        placeholder="Search for a city"
-        autocomplete="off"
-        autofocus="on"
-        id="search-text-input"
-      />
 
-      <input type="submit" value="Search" />
-    </form>
-    <script>
-      function searchCity(event) {
-        event.preventDefault();
-        let searchInput = document.querySelector("#search-text-input");
-        alert(searchInput.value);
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Week 4</title>
+  <style>
+    h1 {
+      text-align: center;
+      font-weight: 900;
+      margin: 0;
+      font-size: 34px;
+      line-height: 48px;
+    }
 
-        let h2 = document.querySelector("h2");
-        h2.innerHTML = `Searching city is ${searchInput.value}`;
+    h1 h2,
+    h3 {
+      color: #231d3c;
+    }
+
+    .logo {
+      display: block;
+      margin: 30px auto;
+      width: 150px;
+    }
+
+    .img-positioning {
+      display: block;
+      margin: 30px auto;
+      width: 75%;
+    }
+
+    .cities {
+      position: fixed;
+      top: 0;
+      right: 0;
+      background: #fff;
+      padding: 20px;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>JS Forms</h1>
+  <h3>Challenge 1</h3>
+  <p>When clicking this button, alert "Hooray!"</p>
+  <button id="special-button">Click me</button>
+  <h3>Challenge 2</h3>
+  <p>
+    When submitting the form, alert the value of the password input
+  <form id="password-form">
+    <input type="password" id="password-input" placeholder="Enter your password">
+    <input type="submit" value="Sign up">
+  </form>
+  </p>
+  <h3>Challenge 3</h3>
+  <p>
+    When submitting the form, alert the value of the username and email inputs
+  <form id="signup-form">
+    <input type="email" id="email-input" placeholder="Enter your email" required>
+    <input type="username" id="username-input" placeholder="Enter your username" required>
+    <input type="submit" value="Sign up">
+  </form>
+  </p>
+  <script>
+    //Challenge 1
+    function alertHooray() {
+      alert('Hooray!')
+    }
+    let button = document.querySelector('#special-button')
+    button.addEventListener('click', alertHooray)
+
+    //Challenge 2
+    function alertPassword(event) {
+      event.preventDefault()
+      let passwordInput = document.querySelector('#password-input');
+      let password = passwordInput.value;
+
+      if (password) {
+        alert(`The value of the password is ${password}`)
+      } else {
+        alert('Enter the password, please');
       }
-      let form = document.querySelector("#search-form");
-      form.addEventListener("submit", searchCity);
-      handleClick;
-    </script>
-  </body>
+    }
+
+    let form = document.querySelector('#password-form')
+    form.addEventListener('submit', alertPassword)
+
+    //Challenge 3
+
+    let signUpForm = document.querySelector('#signup-form');
+    signUpForm.addEventListener('submit', alertInfo)
+
+    function alertInfo(event) {
+      event.preventDefault()
+      let userNameInput = document.querySelector('#username-input');
+      let userName = userNameInput.value
+      let emailInput = document.querySelector('#email-input');
+      let email = emailInput.value
+
+      alert(`username: ${userName}, email: ${email}`)
+    }
+  </script>
+</body>
+
 </html>
